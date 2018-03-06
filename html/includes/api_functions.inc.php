@@ -1739,15 +1739,14 @@ function add_service_for_host()
         $missing_fields[] = 'type';
     }
     if (empty($data['ip'])) {
-        $missing_fields[] = 'ip';
+         $data['ip'] = $router['hostname'];
+    } else if (!filter_var($data['ip'], FILTER_VALIDATE_IP)) {
+        api_error(400, 'service_ip is not a valid IP address.');
     }
 
     // Print error if required fields are missing
     if (!empty($missing_fields)) {
         api_error(400, sprintf("Service field%s %s missing: %s.", ((sizeof($missing_fields)>1)?'s':''), ((sizeof($missing_fields)>1)?'are':'is'), implode(', ', $missing_fields)));
-    }
-    if (!filter_var($data['ip'], FILTER_VALIDATE_IP)) {
-        api_error(400, 'service_ip is not a valid IP address.');
     }
 
     // Check if service type exists
