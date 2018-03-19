@@ -24,7 +24,7 @@ junk
 nbproject
 patches
 !/lib/yaml
-/vendor
+vendor
 composer.phar
 
 # Docs #
