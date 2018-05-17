@@ -222,7 +222,7 @@ if ($device['os'] === 'f5' && (version_compare($device['version'], '11.2.0', '>=
     }
 }
 
-if ($device['os'] != 'asa') {
+if ($device['os'] != 'asa' and $device['os'] != 'nxos') {
     echo 'dot3StatsDuplexStatus';
     if ($config['enable_ports_poe'] || $config['enable_ports_etherlike']) {
         $port_stats = snmpwalk_cache_oid($device, 'dot3StatsIndex', $port_stats, 'EtherLike-MIB');
