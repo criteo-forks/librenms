@@ -148,7 +148,7 @@ function submitCustomRange(frmdata) {
 
 function updateResolution(refresh)
 {
-    $.post('ajax_setresolution.php',
+    $.post('ajax/set_resolution',
         {
             width: $(window).width(),
             height:$(window).height()
@@ -268,16 +268,4 @@ $(document).ready(function() {
             });
         }
     });
-});
-
-$(document).ajaxComplete(function(){
-    if($('.alert-status').length !== 0) {
-        $('.alert-status').each(function() {
-            if ($(this).parent().height() < 27) {
-                $(this).height('27px');
-            } else {
-                $(this).height($(this).parent().height());
-            }
-        })
-    }
 });

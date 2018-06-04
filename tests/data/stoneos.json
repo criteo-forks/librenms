@@ -37,31 +37,6 @@
             ]
         }
     },
-    "applications": {
-        "discovery": {
-            "applications": [],
-            "application_metrics": []
-        },
-        "poller": "matches discovery"
-    },
-    "arp-table": {
-        "discovery": {
-            "ipv4_mac": []
-        },
-        "poller": "matches discovery"
-    },
-    "bgp-peers": {
-        "discovery": {
-            "devices": [
-                {
-                    "bgpLocalAs": null
-                }
-            ],
-            "bgpPeers": [],
-            "bgpPeers_cbgp": []
-        },
-        "poller": "matches discovery"
-    },
     "mempools": {
         "discovery": {
             "mempools": [
@@ -134,7 +109,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -240,7 +214,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -346,7 +319,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -452,7 +424,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -558,7 +529,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -664,7 +634,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -770,7 +739,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -876,7 +844,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -982,7 +949,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1088,7 +1054,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1194,7 +1159,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1300,7 +1264,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1406,7 +1369,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1512,7 +1474,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1618,7 +1579,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1724,7 +1684,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1830,7 +1789,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -1936,7 +1894,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2046,7 +2003,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2152,7 +2108,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2258,7 +2213,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2364,7 +2318,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2470,7 +2423,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2576,7 +2528,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2682,7 +2633,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2788,7 +2738,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -2894,7 +2843,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3000,7 +2948,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3106,7 +3053,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3212,7 +3158,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3318,7 +3263,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3424,7 +3368,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3530,7 +3473,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3636,7 +3578,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3742,7 +3683,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -3848,7 +3788,6 @@
                     "ifLastChange": "0",
                     "ifVlan": "",
                     "ifTrunk": null,
-                    "ifVrf": "0",
                     "counter_in": null,
                     "counter_out": null,
                     "ignore": "0",
@@ -4157,18 +4096,6 @@
                     "state_generic_value": "3"
                 }
             ]
-        },
-        "poller": "matches discovery"
-    },
-    "storage": {
-        "discovery": {
-            "storage": []
-        },
-        "poller": "matches discovery"
-    },
-    "wireless": {
-        "discovery": {
-            "wireless_sensors": []
         },
         "poller": "matches discovery"
     }

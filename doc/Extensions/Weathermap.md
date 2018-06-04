@@ -4,6 +4,10 @@ source: Extensions/Weathermap.md
 Integrating LibreNMS with Network-Weathermap, allows you to build network maps to help visulaize network traffic flow rates.
 [Link](https://network-weathermap.com/) to Network-Wearthermap Offical Website
 
+### Prerequisites
+
+Network-WeatherMap requires php pear to work.
+
 ### Installing Network-WeatherMap
 
 ### Step 1. 
@@ -29,6 +33,7 @@ I'd recommend you use the output folder as this is excluded from git updates (i.
 
 Optional: If your install is in another directory than standard, set `$basehref` within `map-poller.php`.
 
+### WeatherMapper
 Automatically generate weathermaps from a LibreNMS database using WeatherMapper [Link](https://github.com/pblasquez/weathermapper)
 
 ![Example Network Weather Map](/img/network-weather-map.PNG)
