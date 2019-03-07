@@ -950,6 +950,34 @@ Output:
 ]
 ```
 
+### `rediscover_device`
+
+Rediscover device.
+
+Route: `/api/v0/devices/:hostname/rediscover`
+
+  - hostname can be either the device hostname or id
+
+Input:
+
+  -
+
+Examples:
+```curl
+curl -X PATCH  -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/rediscover
+```
+
+Output:
+
+```json
+[
+    {
+        "status": "ok",
+        "message": "Device localhost will be rediscovered"
+    }
+]
+```
+
 ### `rename_device`
 
 Rename device.

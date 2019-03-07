@@ -1791,6 +1791,26 @@ function update_device()
     }
 }
 
+function rediscover_device() {
+    $app = \Slim\Slim::getInstance();
+    $router   = $app->router()->getCurrentRoute()->getParams();
+    $hostname = $router['hostname'];
+    $device_id = ctype_digit($hostname) ? $hostname : getidbyname($hostname);
+
+    $device = device_by_id_cache($device_id);
+    if (!$device) {
+        api_error(404, "Device $hostname does not exist");
+    }
+
+    check_device_permission($device_id);
+    $update = dbUpdate(array('last_discovered' => array('NULL')), 'devices', '`device_id` = ?', array($device_id));
+    if (!empty($update) || $update == '0') {
+        api_success_noresult(200, 'Device ' . $hostname . ' will be rediscovered');
+    } else {
+        api_error(500, 'Error while trying to enable rediscovery of device ' . $hostname);
+    }
+}
+
 function rename_device()
 {
     check_is_admin();
