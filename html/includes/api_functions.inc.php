@@ -916,6 +916,18 @@ function get_port_graphs()
     api_success($ports, 'ports');
 }
 
+function get_ip_address()
+{
+    $app      = \Slim\Slim::getInstance();
+    $router   = $app->router()->getCurrentRoute()->getParams();
+
+    if(isset($router['ip'])) {
+        $ip = $router['ip']; 
+        $data = dbFetchRows("SELECT `ipv4_addresses`.`ipv4_address`, `devices`.`hostname`, `ports`.`ifName`, `ports`.`port_descr_descr`, `ports`.`ifOperStatus` FROM `ipv4_addresses` INNER JOIN `ports` USING(`port_id`) INNER JOIN `devices` USING(`device_id`) WHERE `ipv4_address` = ?", array($ip));
+    }
+    api_success($data, 'address');
+}
+
 function get_ip_addresses()
 {
     $app      = \Slim\Slim::getInstance();
@@ -2150,7 +2162,7 @@ function list_services()
 function list_logs()
 {
     check_is_read();
-
+    global $config;
     $app = \Slim\Slim::getInstance();
     $router = $app->router()->getCurrentRoute()->getParams();
     $type = $app->router()->getCurrentRoute()->getName();
@@ -2158,7 +2170,6 @@ function list_logs()
     $device_id = ctype_digit($hostname) ? $hostname : getidbyname($hostname);
     if ($type === 'list_eventlog') {
         $table = 'eventlog';
-        $select = '`eventlog`.`device_id` as `host`, `eventlog`.*'; // inject host for backward compat
         $timestamp = 'datetime';
     } elseif ($type === 'list_syslog') {
         $table = 'syslog';
@@ -2174,14 +2185,13 @@ function list_logs()
         $timestamp = 'datetime';
     }
 
-    $start = (int)$_GET['start'] ?: 0;
-    $limit = (int)$_GET['limit'] ?: 50;
-    $from = (int)$_GET['from'];
-    $to = (int)$_GET['to'];
+    $start = mres($_GET['start']) ?: 0;
+    $limit = mres($_GET['limit']) ?: 50;
+    $from = mres($_GET['from']);
+    $to = mres($_GET['to']);
 
     $count_query = 'SELECT COUNT(*)';
-    $full_query = "SELECT `devices`.`hostname`, `devices`.`sysName`, ";
-    $full_query .= isset($select) ? $select : "`$table`.*";
+    $full_query = "SELECT `devices`.`hostname`, `devices`.`sysName`, `$table`.*";
 
     $param = array();
     $query = " FROM $table LEFT JOIN `devices` ON `$table`.`device_id`=`devices`.`device_id` WHERE 1";
@@ -2205,12 +2215,6 @@ function list_logs()
     $count = dbFetchCell($count_query, $param);
     $full_query = $full_query . $query . " ORDER BY $timestamp ASC LIMIT $start,$limit";
     $logs = dbFetchRows($full_query, $param);
-
-    if ($type === 'list_alertlog') {
-        foreach ($logs as $index => $log) {
-            $logs[$index]['details'] = json_decode(gzuncompress($log['details']), true);
-        }
-    }
 
     api_success($logs, 'logs', null, 200, null, array('total' => $count));
 }
@@ -2254,15 +2258,14 @@ function add_service_for_host()
         $missing_fields[] = 'type';
     }
     if (empty($data['ip'])) {
-        $missing_fields[] = 'ip';
+         $data['ip'] = $router['hostname'];
+    } else if (!filter_var($data['ip'], FILTER_VALIDATE_IP)) {
+        api_error(400, 'service_ip is not a valid IP address.');
     }
 
     // Print error if required fields are missing
     if (!empty($missing_fields)) {
         api_error(400, sprintf("Service field%s %s missing: %s.", ((sizeof($missing_fields)>1)?'s':''), ((sizeof($missing_fields)>1)?'are':'is'), implode(', ', $missing_fields)));
-    }
-    if (!filter_var($data['ip'], FILTER_VALIDATE_IP)) {
-        api_error(400, 'service_ip is not a valid IP address.');
     }
 
     // Check if service type exists
