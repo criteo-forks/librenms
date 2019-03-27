@@ -878,6 +878,18 @@ function get_port_graphs()
     api_success($ports, 'ports');
 }
 
+function get_ip_address()
+{
+    $app      = \Slim\Slim::getInstance();
+    $router   = $app->router()->getCurrentRoute()->getParams();
+
+    if(isset($router['ip'])) {
+        $ip = $router['ip']; 
+        $data = dbFetchRows("SELECT `ipv4_addresses`.`ipv4_address`, `devices`.`hostname`, `ports`.`ifName`, `ports`.`port_descr_descr`, `ports`.`ifOperStatus` FROM `ipv4_addresses` INNER JOIN `ports` USING(`port_id`) INNER JOIN `devices` USING(`device_id`) WHERE `ipv4_address` = ?", array($ip));
+    }
+    api_success($data, 'address');
+}
+
 function get_ip_addresses()
 {
     $app      = \Slim\Slim::getInstance();
