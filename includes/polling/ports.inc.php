@@ -302,7 +302,7 @@ if ($device['os'] === 'f5' && (version_compare($device['version'], '11.2.0', '>=
                 $port_stats = snmpwalk_cache_oid($device, $oid, $port_stats, 'IF-MIB', null, '-OQUst');
             }
         }
-        if ($device['os'] != 'asa') {
+        if ($device['os'] != 'asa' and $device['os'] != 'nxos') {
             echo 'dot3StatsDuplexStatus';
             if (Config::get('enable_ports_poe') || Config::get('enable_ports_etherlike')) {
                 $port_stats = snmpwalk_cache_oid($device, 'dot3StatsIndex', $port_stats, 'EtherLike-MIB');
