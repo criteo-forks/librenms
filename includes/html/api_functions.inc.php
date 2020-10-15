@@ -932,6 +932,19 @@ function get_device_ip_addresses(Illuminate\Http\Request $request)
     });
 }
 
+function get_ip_address(Illuminate\Http\Request $request)
+{
+    $ip = $request->route('hostname');
+
+    if(!isset($ip)) {
+        return api_error(404, "Missing IP address in params");
+    }
+
+    $data = dbFetchRows("SELECT `ipv4_addresses`.`ipv4_address`, `devices`.`hostname`, `ports`.`ifName`, `ports`.`port_descr_descr`, `ports`.`ifOperStatus` FROM `ipv4_addresses` INNER JOIN `ports` USING(`port_id`) INNER JOIN `devices` USING(`device_id`) WHERE `ipv4_address` = ?", array($ip));
+    api_success($data, 'address');
+}
+
+
 function get_port_ip_addresses(Illuminate\Http\Request $request)
 {
     $port_id = $request->route('portid');
